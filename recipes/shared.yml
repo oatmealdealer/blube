@@ -1,0 +1,66 @@
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
+
+  - type: dnf
+    repos:
+      files:
+        - https://copr.fedorainfracloud.org/coprs/wezfurlong/wezterm-nightly/repo/fedora-43/wezfurlong-wezterm-nightly-fedora-43.repo
+        - https://copr.fedorainfracloud.org/coprs/g/kicad/kicad-stable/repo/fedora-43/group_kicad-kicad-stable-fedora-43.repo
+        - https://repo.librewolf.net/librewolf.repo
+      copr:
+        - atim/starship
+    install:
+      packages:
+        - micro
+        - starship
+        - rust
+        - cargo
+        - helix
+        - tmux
+        - wezterm
+        - libreoffice
+        - librewolf
+        - kdenlive
+        - skanpage
+        - rust-analyzer
+        - darktable
+        - kicad
+        - kicad-packages3d
+        - kicad-doc
+    remove:
+      packages:
+        # example: removing firefox (in favor of the flatpak)
+        # "firefox" is the main package, "firefox-langpacks" is a dependency
+        - firefox
+        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+
+  - type: default-flatpaks
+    configurations:
+      - notify: true # Send notification after install/uninstall is finished (true/false)
+        scope: user
+        # If no repo information is specified, Flathub will be used by default
+        install: # system flatpaks we want all users to have and not remove
+          # - org.mozilla.firefox
+          # - org.gnome.Loupe
+          - com.bambulab.BambuStudio
+          - chat.delta.desktop
+          - org.freecad.FreeCAD
+          - md.obsidian.Obsidian
+          - com.vscodium.codium
+      # - scope: user # Also add Flathub user repo, but no user packages
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - JetBrainsMono
+      google-fonts:
+        - Roboto
+        - Lusitania
+
+  - type: os-release
+    properties:
+      NAME: Blube
+
+  - type: signing # this sets up the proper policy & signing files for signed images to work fully
