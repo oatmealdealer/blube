@@ -30,6 +30,7 @@ modules:
         - kicad
         - kicad-packages3d
         - kicad-doc
+        - blender
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
