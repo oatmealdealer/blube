@@ -31,6 +31,7 @@ jobs:
           - recipe-nvidia.yml
           - recipe-dx.yml
           - recipe-dx-nvidia-open.yml
+          - recipe-bazzite-dx.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
