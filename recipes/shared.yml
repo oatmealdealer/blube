@@ -18,6 +18,8 @@ modules:
         - starship
         - rust
         - cargo
+        - clippy
+        - rust-analyzer
         - helix
         - tmux
         - wezterm
@@ -25,7 +27,6 @@ modules:
         - librewolf
         - kdenlive
         - skanpage
-        - rust-analyzer
         - darktable
         - kicad
         - kicad-packages3d
