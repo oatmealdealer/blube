@@ -19,6 +19,7 @@ modules:
         - rust
         - cargo
         - clippy
+        - rustfmt
         - rust-analyzer
         - helix
         - tmux
