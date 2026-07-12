@@ -33,6 +33,7 @@ modules:
         - kicad-packages3d
         - kicad-doc
         - blender
+        - capnproto
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
